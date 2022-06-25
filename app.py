@@ -68,7 +68,7 @@ def download_testcases(url):
         #solution file:-
         solution_file_path = curr_prob_path + "/" + pb_char + ".cpp"
         solution_file = open(solution_file_path, "w")
-        # subprocess.run(["code", solution_file_path])
+        subprocess.run(["code", solution_file_path])
 
         array_file = [sample_input_1, sample_output_1]
 
@@ -81,7 +81,7 @@ def download_testcases(url):
         #solution file:-
         solution_file_path = curr_prob_path + "/" + pb_char + ".cpp"
         solution_file = open(solution_file_path, "w")
-        # subprocess.run(["code", solution_file_path])
+        subprocess.run(["code", solution_file_path])
 
         array_file = [sample_input_1, sample_output_1, sample_input_2, sample_output_2]
 
@@ -97,11 +97,11 @@ def download_testcases(url):
         #solution file:-
         solution_file_path = curr_prob_path + "/" + pb_char + ".cpp"
         solution_file = open(solution_file_path, "w")
-        # subprocess.run(["code", solution_file_path])
+        subprocess.run(["code", solution_file_path])
 
         array_file = [sample_input_1, sample_output_1, sample_input_2, sample_output_2, sample_input_3, sample_output_3]
 
-    if no_of_testcases == 3:
+    if no_of_testcases == 4:
         sample_input_1 = open(curr_prob_path + "/sample_input_1.txt", "w")
         sample_output_1 = open(curr_prob_path + "/sample_output_1.txt", "w")
         sample_input_2 = open(curr_prob_path + "/sample_input_2.txt", "w")
@@ -114,7 +114,7 @@ def download_testcases(url):
         #solution file:-
         solution_file_path = curr_prob_path + "/" + pb_char + ".cpp"
         solution_file = open(solution_file_path, "w")
-        # subprocess.run(["code", solution_file_path])
+        subprocess.run(["code", solution_file_path])
 
         array_file = [sample_input_1, sample_output_1, sample_input_2, sample_output_2, sample_input_3, sample_output_3, sample_input_4, sample_output_4]
 
