@@ -1,14 +1,12 @@
+from asyncio import PidfdChildWatcher
 from bs4 import BeautifulSoup
 import requests
 import sys
-import subprocess
 import os
 from colorama import Fore
+import subprocess
 
-contest_name = sys.argv[1]
-
-url = 'https://codeforces.com/contest/'
-url += contest_name
+url = sys.argv[1]
 
 def download_testcases(url):
 
@@ -43,16 +41,29 @@ def download_testcases(url):
 
     print("Testcases found for problem", pb_char + ": " + f'{Fore.GREEN}',str(no_of_testcases), f'{Fore.WHITE}')
     print()
+    pb_char = 'main'
+    
+    problem_name = ""
+    # mydivs = soup.find_all("div", {"class": "stylelistrow"})
+    name_data = soup.find('div', {'class':'title'})
+    name = ""
+    for i in name_data:
+        name += i
 
+    modify = ""
+    for i in name:
+        if i == ' ':
+            continue
+        if i == '.':
+            modify += '-'
+        else:
+            modify += i
 
-    CF_Path = "/Users/abhijayrajvansh/Desktop/codeforces/" + contest_name
+    problem_name = modify
 
-    try : 
-        os.mkdir(CF_Path)
-    except FileExistsError:
-        print(end="")
+    CF_Path = "/Users/abhijayrajvansh/Desktop/codeforces/upsolve/" + problem_name
 
-    curr_prob_path = CF_Path + '/' + pb_char
+    curr_prob_path = CF_Path 
 
     print("Problem Path:" + curr_prob_path)
     print()
@@ -68,7 +79,7 @@ def download_testcases(url):
         #solution file:-
         solution_file_path = curr_prob_path + "/" + pb_char + ".cpp"
         solution_file = open(solution_file_path, "w")
-        # subprocess.run(["code", solution_file_path])
+        subprocess.run(["code", solution_file_path])
 
         array_file = [sample_input_1, sample_output_1]
 
@@ -81,7 +92,7 @@ def download_testcases(url):
         #solution file:-
         solution_file_path = curr_prob_path + "/" + pb_char + ".cpp"
         solution_file = open(solution_file_path, "w")
-        # subprocess.run(["code", solution_file_path])
+        subprocess.run(["code", solution_file_path])
 
         array_file = [sample_input_1, sample_output_1, sample_input_2, sample_output_2]
 
@@ -97,7 +108,7 @@ def download_testcases(url):
         #solution file:-
         solution_file_path = curr_prob_path + "/" + pb_char + ".cpp"
         solution_file = open(solution_file_path, "w")
-        # subprocess.run(["code", solution_file_path])
+        subprocess.run(["code", solution_file_path])
 
         array_file = [sample_input_1, sample_output_1, sample_input_2, sample_output_2, sample_input_3, sample_output_3]
 
@@ -114,7 +125,7 @@ def download_testcases(url):
         #solution file:-
         solution_file_path = curr_prob_path + "/" + pb_char + ".cpp"
         solution_file = open(solution_file_path, "w")
-        # subprocess.run(["code", solution_file_path])
+        subprocess.run(["code", solution_file_path])
 
         array_file = [sample_input_1, sample_output_1, sample_input_2, sample_output_2, sample_input_3, sample_output_3, sample_input_4, sample_output_4]
 
@@ -136,33 +147,5 @@ def download_testcases(url):
     for i in range(n):
         array_file[i].write(final[i])
 
-def checkurl(check):
-     
-    try:
-       
-        response = requests.head(check)
-         
-        if response.status_code == 200:
-            return True
-        else:
-            return False
-    except requests.ConnectionError as e:
-        return e
- 
 
-def problem(problem_name):
-    current_problem_url = url + "/problem/" + problem_name
-    
-    # print("Checking Problem Link: ", current_problem_url)
-
-    if checkurl(current_problem_url) == True:
-        download_testcases(current_problem_url)
-
-
-all_problems_set = ['A', 'A1', 'A2', 'B', 'B1', 'B2', 'C', 'C1', 'C2', 'D', 'D1', 'D2', 'E', 'E1', 'E2', 'F', 'F1', 'F2','G', 'G1' ,'G2', 'H', 'H1', 'H2']
-
-for i in all_problems_set:
-    problem(i)
-
-
-
+download_testcases(url)
