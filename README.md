@@ -1,6 +1,6 @@
 # Codeforces-Contest-Bot
 
-© 2022 Abhijay Rajvansh, All rights reserved.
+© [Abhijay Rajvansh](http://github.com/abhijayrajvansh), [LinkedIn](https://www.linkedin.com/in/abhijayrajvansh).
 
 Codeforces Contest Bot is the best software program written by Abhijay Rajvansh for codeforces contests which can download testcases, contest problems, parse test cases through custom CLI commands 🚀
 
