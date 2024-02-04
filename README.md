@@ -1,4 +1,4 @@
-# Codeforces-Contest-Bot
+# Codeforces Contest Bot v0 [Archived]
 
 © [Abhijay Rajvansh](http://github.com/abhijayrajvansh), [LinkedIn](https://www.linkedin.com/in/abhijayrajvansh).
 
